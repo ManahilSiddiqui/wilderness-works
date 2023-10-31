@@ -21,20 +21,18 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'))
 
-// app.get('/', (req, res) => {
-   // res.render('home')
-// })
+app.get('/', (req, res) => {
+   res.render('home')
+ });
 
-app.get('/makecampground', async (req, res) => {
-    try {
-        const camp = new Campground({ title: 'My backyard', description: 'cheap camping' });
-        await camp.save();
-        res.send(camp);
-    } catch (error) {
-        console.error('Error:', error);
-        res.status(500).send('Error occurred while creating campground');
-    }
-});
+app.get('/campgrounds', async (req, res) => {
+    const campgrounds = await Campground.find({});
+    res.render('campgrounds/index', {campgrounds})
+})
+
+app.get('/campgrounds/:id', async(req, res) => {
+    res.render('campgrounds/show')
+})
 
 
 app.listen(3000, () => {
