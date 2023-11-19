@@ -10,8 +10,10 @@ cloudinary.config({
 
 const storage = new CloudinaryStorage({
     cloudinary,
-    folder: 'WildernessJourney',
-    allowedFormats: ['jpeg', 'png', 'jpg']
+    params:{
+        folder: 'WildernessJourney',
+        allowedFormats: ['jpeg', 'png', 'jpg']
+    }
 });
 
 module.exports = {
