@@ -28,6 +28,10 @@ const seedDB = async () => {
         title: `${sample(descriptors)} ${sample(places)}`,
         description: 'loream',
         price,
+        geometry: {
+            type: 'Point',
+            coordinates: [ -98.8223185136653, 31.8039734986915 ]
+        },
         images: [
             {
             url: 'https://res.cloudinary.com/drwnzlwi7/image/upload/v1700735126/WildernessJourney/gxx81jz9isd6zyouye4c.jpg',
