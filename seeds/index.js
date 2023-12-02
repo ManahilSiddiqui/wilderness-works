@@ -3,7 +3,7 @@ const cities = require('./cities');
 const {places, descriptors} = require('./seedHelpers');
 const Campground = require('../models/campground');
 
-const dbURL = process.env.DB_URL || 'mongodb://127.0.0.1:27017/Wilderness-Journey';
+const dbURL = process.env.DB_URL;
 
 mongoose.connect(dbURL, {
     useNewUrlParser: true,
