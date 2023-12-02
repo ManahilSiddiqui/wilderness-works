@@ -3,19 +3,20 @@ const cities = require('./cities');
 const {places, descriptors} = require('./seedHelpers');
 const Campground = require('../models/campground');
 
-const dbURL = process.env.DB_URL;
+const dbURL = process.env.DB_URL || 'mongodb://127.0.0.1:27017/Wilderness-Journey';
 
 mongoose.connect(dbURL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
 
-
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
     console.log('Database connected');
 });
+
+
 
 const sample = array => array[Math.floor(Math.random() * array.length)];
 
