@@ -3,15 +3,12 @@ const cities = require('./cities');
 const {places, descriptors} = require('./seedHelpers');
 const Campground = require('../models/campground');
 
-const dbURL = process.env.DB_URL;
-// mongoose.connect('mongodb://127.0.0.1:27017/yelp-camp');
-main().catch(err => console.log(err));
+const dbURL = process.env.DB_URL || 'mongodb://127.0.0.1:27017/Wilderness-Journey';
 
-async function main() {
-    await mongoose.connect(dbURL);
-    console.log("MONGO CONNECTION OPEN");
-    // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
-};
+mongoose.connect(dbURL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+});
 
 
 const db = mongoose.connection;
