@@ -1,4 +1,7 @@
 {
+  "engines": {
+    "node": "18.13.0"
+  },
   "name": "wild",
   "version": "1.0.0",
   "description": "",
